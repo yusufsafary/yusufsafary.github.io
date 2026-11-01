@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Market — Nomio</title>
+<meta name="description" content="The Nomio market: every minted Nomio work and its owner. Trading opens 2 November 2026 at 00.00 UTC through Element on BNB Chain.">
+<meta name="theme-color" content="#EEE8DC">
+<meta property="og:title" content="Nomio Market">
+<meta property="og:description" content="The Nomio market: every minted work and its owner, trading through Element on BNB Chain.">
+<meta property="og:image" content="https://nomio.uk/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;1,9..144,300;1,9..144,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/site.css">
+<style>
+.mk-head{padding:64px 20px 28px;max-width:1080px;margin:0 auto}
+.mk-head h1{font-weight:300;font-size:clamp(46px,11vw,96px);line-height:.95;letter-spacing:-.02em;margin:14px 0 18px}
+.mk-head p{max-width:620px;color:var(--mute)}
+.mk-stats{display:flex;gap:28px;flex-wrap:wrap;margin-top:26px}
+.mk-stats div b{display:block;font-family:var(--serif);font-weight:500;font-size:34px}
+.mk-tools{position:sticky;top:57px;z-index:10;background:rgba(238,232,220,.94);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.mk-tools .in{max-width:1080px;margin:0 auto;padding:12px 20px;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.mk-tools select{flex:1 1 30%;min-width:0}.mk-tools select,.mk-tools input{height:44px;border:1px solid var(--ink);background:var(--paper);font-family:var(--mono);font-size:12px;letter-spacing:.06em;padding:0 12px;color:var(--ink);border-radius:0}
+.mk-tools input{flex:1 1 100%;min-width:0;font-size:16px}@media(min-width:760px){.mk-tools input{flex:1 1 220px;font-size:12px}.mk-tools select{flex:0 0 auto}}
+.mk-grid{max-width:1080px;margin:0 auto;padding:18px 14px 60px;display:grid;grid-template-columns:repeat(2,1fr);gap:10px}@media(min-width:760px){.mk-grid{grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px;padding:24px 20px 80px}}
+.mk-card{background:var(--paper);border:1px solid var(--rule);display:flex;flex-direction:column}
+.mk-card .art{aspect-ratio:1;background:#e6dfd1;overflow:hidden}
+.mk-card .art img{width:100%;height:100%;display:block;object-fit:cover}
+.mk-card .meta{padding:14px 14px 4px}
+.mk-card .meta h3{font-family:var(--serif);font-weight:500;font-size:22px}
+.mk-card .meta p{color:var(--mute);margin-top:4px}
+.mk-card .meta{padding:10px 10px 2px}.mk-card .meta h3{font-size:18px}.mk-card .acts{display:grid;grid-template-columns:1fr;gap:8px;padding:12px 14px 14px;margin-top:auto}
+.mk-card .acts .btn{height:40px;padding:0 8px;font-size:10.5px}@media(min-width:760px){.mk-card .meta{padding:14px 14px 4px}.mk-card .meta h3{font-size:22px}.mk-card .acts{grid-template-columns:1fr 1fr}}
+.mk-empty{grid-column:1/-1;padding:60px 0;text-align:center;color:var(--mute)}
+.mk-note{max-width:1080px;margin:0 auto;padding:0 20px 60px;color:var(--mute);font-size:15px}
+</style>
+</head>
+<body>
+<header class="bar">
+  <a class="mark" href="/"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><g fill="currentColor"><rect x="9" y="1" width="6" height="6"/><rect x="3" y="9" width="6" height="6"/><rect x="15" y="9" width="6" height="6"/><rect x="9" y="17" width="6" height="6"/></g></svg>NOMIO</a>
+  <nav class="nav mono"><a href="/#law">Law</a><a href="/#mint">Mint</a><a href="/market" aria-current="page">Market</a><a href="/roadmap">Roadmap</a></nav>
+  <div class="count mono"><i></i><b id="barCount">0</b>/4444</div>
+</header>
+
+<section class="mk-head">
+  <span class="mono" style="color:var(--acc)">Article V · Exchange · <span data-open-hide>Opens 2 Nov 2026 · 00.00 UTC</span><span data-open-show style="display:none">Open</span></span>
+  <h1>The market.<br><em style="font-style:italic;color:var(--acc)"><span data-open-hide>Opens at midnight.</span><span data-open-show style="display:none">Now open.</span></em></h1>
+  <p><span data-open-hide>Every Nomio minted so far, with its owner. Trading opens on 2 November 2026 at 00.00 UTC, with buying, selling and offers through Element, the BNB Chain NFT marketplace.</span><span data-open-show style="display:none">Every Nomio minted so far, with its owner. Trading is open, with buying, selling and offers through Element, the BNB Chain NFT marketplace.</span></p>
+  <div class="mk-stats mono">
+    <div><b id="sMinted">—</b>Minted</div>
+    <div><b id="sOwners">—</b>Owners</div>
+    <div><b>4,444</b>Max supply</div>
+  </div>
+  <div class="cta" style="margin-top:28px;display:flex;gap:10px;flex-wrap:wrap">
+    <span class="btn ink" data-open-hide aria-disabled="true" style="opacity:.55;cursor:default">Trading opens in <span data-cd></span></span>
+    <a class="btn ink" data-open-show style="display:none" href="https://element.market/collections/nomio" target="_blank" rel="noopener">Trade on Element</a>
+    <a class="btn line" href="https://bscscan.com/token/0x48b5e5573e76CaAa41a893496dE6C857720E6b40" target="_blank" rel="noopener">Contract on BscScan</a>
+  </div>
+</section>
+
+<div class="mk-tools"><div class="in">
+  <input id="q" placeholder="Search # or paste a wallet 0x…" autocomplete="off" spellcheck="false" aria-label="Search by id or wallet">
+  <select id="fForm" aria-label="Form"><option value="">All forms</option></select>
+  <select id="fPal" aria-label="Palette"><option value="">All palettes</option></select>
+  <select id="sort" aria-label="Sort"><option value="new">Newest</option><option value="old">Oldest</option></select>
+</div></div>
+
+<main class="mk-grid" id="grid"><div class="mk-empty mono">Reading BNB Chain…</div></main>
+<p class="mk-note"><span data-open-hide>Market preview. Trading opens 2 November 2026 at 00.00 UTC.</span><span data-open-show style="display:none">Trading is open on Element.</span> Nomio is a standard ERC-721 on BNB Chain. Contract: <span class="mono">0x48b5e5573e76CaAa41a893496dE6C857720E6b40</span></p>
+
+<script src="/js/market-open.js"></script>
+<script src="/js/art.js"></script>
+<script src="/js/chain.js"></script>
+<script>
+const $ = (s) => document.querySelector(s);
+let ALL = [];
+const short = (a) => a.slice(0, 6) + '…' + a.slice(-4);
+function opts(sel, vals) { [...new Set(vals)].sort().forEach((v) => { const o = document.createElement('option'); o.value = o.textContent = v; sel.appendChild(o); }); }
+function render() {
+  const q = $('#q').value.trim().toLowerCase(), f = $('#fForm').value, p = $('#fPal').value;
+  let list = ALL.filter((x) => (!f || x.form === f) && (!p || x.palette === p));
+  if (q) list = /^0x[0-9a-f]{40}$/.test(q) ? list.filter((x) => x.owner.toLowerCase() === q) : list.filter((x) => String(x.id) === q.replace('#', '') || x.rule.toLowerCase().includes(q));
+  list.sort((a, b) => $('#sort').value === 'old' ? a.id - b.id : b.id - a.id);
+  const g = $('#grid'); g.innerHTML = '';
+  if (!list.length) { g.innerHTML = '<div class="mk-empty mono">No works match.</div>'; return; }
+  for (const x of list) {
+    const d = document.createElement('article'); d.className = 'mk-card rv';
+    d.innerHTML = `<a class="art" href="/?id=${x.id}"><img loading="lazy" src="https://nomio-six.vercel.app/api/image/${x.id}" alt="Nomio #${x.id}"></a>
+      <div class="meta"><h3>Nomio #${x.id}</h3><p class="mono">${x.form} · ${x.palette} · ${x.rule}</p><p class="mono">Owner <a href="https://bscscan.com/address/${x.owner}" target="_blank" rel="noopener">${short(x.owner)}</a></p></div>
+      <div class="acts">${marketIsOpen() ? `<a class="btn ink" href="${x.element}" target="_blank" rel="noopener">Buy</a><a class="btn line" href="${ELEMENT_COLLECTION}" target="_blank" rel="noopener">Sell</a>` : `<span class="btn ink" aria-disabled="true" style="opacity:.5;cursor:default">Buy · Soon</span><span class="btn line" aria-disabled="true" style="opacity:.5;cursor:default">Sell · Soon</span>`}</div>`;
+    g.appendChild(d);
+  }
+}
+window.NomioChain.market().then((j) => {
+  ALL = j.items || []; $('#sMinted').textContent = j.minted.toLocaleString('en'); $('#sOwners').textContent = j.owners.toLocaleString('en'); $('#barCount').textContent = j.minted;
+  opts($('#fForm'), ALL.map((x) => x.form)); opts($('#fPal'), ALL.map((x) => x.palette)); render();
+}).catch(() => { $('#grid').innerHTML = '<div class="mk-empty mono">Could not reach BNB Chain. Refresh in a moment.</div>'; });
+['#q', '#fForm', '#fPal', '#sort'].forEach((s) => $(s).addEventListener('input', render));
+window.onMarketFlip = () => render();
+</script>
+<script src="/js/smooth.js" defer></script>
+</body>
+</html>

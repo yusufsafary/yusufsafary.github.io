@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nomio — Small laws, endless worlds</title>
+<meta name="description" content="4,444 cellular-automaton works on BNB Chain. Each token is a rule and the world it grows. Mintable only by Binance Agentic Wallets with an Agent ID.">
+<meta name="theme-color" content="#EEE8DC">
+<meta property="og:title" content="Nomio — Small laws, endless worlds">
+<meta property="og:description" content="4,444 cellular-automaton works, minted only by AI agents. One per wallet.">
+<meta property="og:image" content="https://nomio.uk/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;1,9..144,300;1,9..144,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/site.css">
+</head>
+<body>
+
+<div class="notice mono">Holder claim is open: every Nomio claims 250,000 $NOMIO, once per work. <a href="#claim">Claim yours</a></div>
+
+<header class="bar">
+  <a class="mark" href="#top"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><g fill="currentColor"><rect x="9" y="1" width="6" height="6"/><rect x="3" y="9" width="6" height="6"/><rect x="15" y="9" width="6" height="6"/><rect x="9" y="17" width="6" height="6"/></g></svg>NOMIO</a>
+  <nav class="nav mono"><a href="#law">Law</a><a href="#forms">Forms</a><a href="#mint">Mint</a><a href="#claim">Claim</a><a href="#worlds">Worlds</a><a href="/market">Market</a><a href="/roadmap">Roadmap</a></nav>
+  <a class="mono mk-pill" href="/market">Market · <span data-open-hide>opens 00.00 UTC</span><span data-open-show style="display:none">open</span></a>
+  <div class="count mono"><i></i><b id="barCount">0</b>/4444</div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <canvas id="field" aria-hidden="true"></canvas>
+    <div class="hero-in">
+      <p class="kicker mono">νόμος &nbsp;/ nomos / &nbsp;n. a law, a custom, the way a thing behaves</p>
+      <h1 class="display">Small laws.<br><em>Endless worlds.</em></h1>
+      <p class="lede">4,444 works on BNB Chain. Every Nomio is one rule, eight tiny instructions, and the world it grows from a seed fixed the moment an AI agent mints it.</p>
+      <div class="cta"><a class="btn ink" href="#mint">Mint as an agent</a><a class="btn line" href="#law">Read the law</a></div>
+    </div>
+    <div class="hero-foot mono"><span>Series I</span><span>BNB Chain</span><span>Binance Agentic Wallets only</span></div>
+  </section>
+
+  <section class="sec" id="law">
+    <div class="art-no mono">Article I</div>
+    <h2 class="display">The law fits on one line.</h2>
+    <p class="body">Each cell looks at itself and its two neighbours. Eight possible neighbourhoods, eight answers: live or die. That is the whole rule. Tap the answers below and watch a new world write itself, row by row.</p>
+    <div class="toy">
+      <div class="toy-rule" id="toyRule"></div>
+      <div class="toy-meta mono"><span>Rule <b id="toyNum">110</b></span><button class="chip" id="toyRand">Random law</button><button class="chip" id="toySeed">Single seed</button></div>
+      <canvas id="toyCanvas"></canvas>
+    </div>
+    <p class="body small">There are 256 laws like this. Some die at once. Some repeat forever. A few, like Rule 110, are complex enough to compute anything. Nomio draws only from the laws that make something worth looking at.</p>
+  </section>
+
+  <section class="sec" id="forms">
+    <div class="art-no mono">Article II</div>
+    <h2 class="display">Four ways a world can grow.</h2>
+    <div class="forms" id="formGrid"></div>
+    <div class="pals" id="pals"></div>
+  </section>
+
+  <section class="sec mint" id="mint">
+    <div class="art-no mono">Article III</div>
+    <h2 class="display">Only agents may mint.</h2>
+    <p class="body">The contract accepts one caller: a Binance Agentic Wallet holding an Agent ID. Ordinary wallets and other contracts are turned away on-chain. One work per wallet.</p>
+
+    <div class="ledger">
+      <div class="l-row"><span class="mono k">Minted</span><span class="v"><b id="mMinted">0</b> / 4,444</span></div>
+      <div class="meter"><div id="mFill"></div><span class="tick" style="left:10%"></span></div>
+      <div class="l-row"><span class="mono k">Remaining</span><span class="v" id="mLeft">4,444</span></div>
+      <div class="l-row"><span class="mono k">Status</span><span class="v mono" id="mStatus">Reading contract…</span></div>
+    </div>
+
+    <ol class="steps">
+      <li><span class="mono">01</span><div><b>Hold an Agent ID.</b> Claim it in the Binance Wallet app under your Agentic Wallet. The contract checks it before anything else.</div></li>
+      <li><span class="mono">02</span><div><b>Call mint().</b> One call, no arguments. Read <code>currentPrice()</code> and send exactly that. Your wallet shows the value before you sign.</div></li>
+      <li><span class="mono">03</span><div><b>Your law is chosen.</b> The block decides the seed, the seed decides the rule, the palette and the form. Nothing is curated after the fact.</div></li>
+    </ol>
+
+    <div class="code">
+      <div class="code-top mono"><span>Prompt for your agent</span><button class="chip" data-copy="prompt">Copy</button></div>
+      <pre id="prompt">Mint one Nomio on BNB Chain (chain id 56).
+Contract: <span class="caddr">0x48b5e5573e76CaAa41a893496dE6C857720E6b40</span>
+Call mint() with calldata 0x1249c58b.
+Value: read currentPrice() on the contract and send exactly that.</pre>
+    </div>
+    <div class="code dark">
+      <div class="code-top mono"><span>baw CLI</span><button class="chip" data-copy="cli">Copy</button></div>
+      <pre id="cli">baw contract-call preview --binanceChainId 56 \
+  --from &lt;your agentic wallet&gt; \
+  --to <span class="caddr">0x48b5e5573e76CaAa41a893496dE6C857720E6b40</span> \
+  --value &lt;currentPrice() in wei&gt; --inputData 0x1249c58b --json
+
+baw contract-call execute --requestId &lt;requestId&gt; --json</pre>
+    </div>
+    <div class="check">
+      <label class="mono" for="who">Check a wallet</label>
+      <div class="check-row"><input id="who" placeholder="0x…" autocomplete="off" spellcheck="false"><button class="btn ink sm" id="whoBtn">Check</button></div>
+      <p class="mono small" id="whoOut"></p>
+    </div>
+  </section>
+
+  <section class="sec" id="claim">
+    <div class="art-no mono">Article III · Claim</div>
+    <h2 class="display">Every work claims $NOMIO.</h2>
+    <p class="body">Every minted Nomio can claim 250,000 $NOMIO, once. The claim is tied to the work itself: sell a work before claiming and the claim travels with it; claim first and that work is spent for good. There is no deadline.</p>
+    <p class="body">Claims run through your Binance agent, exactly like the mint. A small anti-Sybil fee in BNB applies per claim, shown in your wallet before you sign.</p>
+
+    <div class="ledger">
+      <div class="l-row"><span class="mono k">Per work</span><span class="v">250,000 $NOMIO</span></div>
+      <div class="l-row"><span class="mono k">Claimed</span><span class="v"><b id="cClaimed">0</b> / 4,444</span></div>
+      <div class="meter"><div id="cFill"></div></div>
+      <div class="l-row"><span class="mono k">Status</span><span class="v mono" id="cStatus">Reading contract…</span></div>
+    </div>
+
+    <ol class="steps">
+      <li><span class="mono">01</span><div><b>Hold a Nomio</b> that has not claimed yet. Unsure about a work? Check its number below.</div></li>
+      <li><span class="mono">02</span><div><b>Tell your agent to claim.</b> Copy the prompt below, or point it to the <a href="/nomio-claim-skill.md">claim skill file</a>. It reads the fee on-chain and shows you a preview first.</div></li>
+      <li><span class="mono">03</span><div><b>Confirm in your wallet.</b> 250,000 $NOMIO arrives in the same transaction.</div></li>
+    </ol>
+
+    <div class="code">
+      <div class="code-top mono"><span>Prompt for your agent</span><button class="chip" data-copy="cprompt">Copy</button></div>
+      <pre id="cprompt">Claim the $NOMIO for my Nomio on BNB Chain (chain id 56).
+Read the skill file at https://nomio.uk/nomio-claim-skill.md and follow it exactly.
+For each of my Nomio works that has not claimed yet: read claimFee() on the claim contract, preview the transaction, then call claim(tokenId) with exactly that value. Each work claims 250,000 $NOMIO, once.</pre>
+    </div>
+    <div class="check">
+      <label class="mono" for="work">Check a work</label>
+      <div class="check-row"><input id="work" placeholder="Nomio number, 1 to 4,444" autocomplete="off" spellcheck="false" inputmode="numeric"><button class="btn ink sm" id="workBtn">Check</button></div>
+      <p class="mono small" id="workOut"></p>
+    </div>
+    <p class="mono small" style="margin-top:18px">Token <a href="https://bscscan.com/address/0x84B61D73E098e7D46B214bF0032E5C5CdfbAc433" target="_blank" rel="noopener">0x84B6…Ac433 ↗</a> · Claim contract <a href="https://bscscan.com/address/0xcbeE2612E3f3FEb298b274E7119a6a9ce08871b9" target="_blank" rel="noopener">0xcbeE…871b9 ↗</a></p>
+  </section>
+
+  <section class="sec" id="worlds">
+    <div class="art-no mono">Article IV</div>
+    <h2 class="display">Worlds minted so far.</h2>
+    <div class="gallery" id="gallery"><p class="empty mono">The first law is waiting for its agent.</p></div>
+  </section>
+
+  <section class="sec" id="market">
+    <div class="art-no mono">Article V · Exchange</div>
+    <h2 class="display">The market.</h2>
+    <p style="max-width:620px;color:var(--mute);margin-bottom:26px">A home for trading Nomio, with every minted work and its owner in one place. <span data-open-hide>Buying, selling and offers open through Element on BNB Chain on 2 November 2026 at 00.00 UTC. Opens in <span data-cd></span>.</span><span data-open-show style="display:none">Buying, selling and offers are open through Element on BNB Chain.</span></p>
+    <div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn ink" href="/market">See the market</a><a class="btn line" data-open-show style="display:none" href="https://element.market/collections/nomio" target="_blank" rel="noopener">Trade on Element</a></div>
+  </section>
+
+  <section class="sec" id="programme">
+    <div class="art-no mono">Article VI · Programme</div>
+    <h2 class="display">A curatorial <em>programme.</em></h2>
+    <p class="body">Five movements, from genesis to motion: how the edition circulates, is catalogued, studied and set in time.</p>
+    <a class="btn line" href="/roadmap" style="margin-top:24px">Read the programme</a>
+  </section>
+
+  <section class="sec" id="notes">
+    <div class="art-no mono">Notes</div>
+    <details><summary>Why only agents?</summary><p>Nomio is about rules that run without a hand on them, so it is minted by software that acts on its own. The contract requires the SPACE ID Agent ID that Binance Agentic Wallets claim, and rejects calls from contracts.</p></details>
+    <details><summary>What decides my piece?</summary><p>A seed made from the block and your address at mint. It picks the form, the law, the starting row and the palette. The same seed always draws the same work.</p></details>
+    <details><summary>Where does it live?</summary><p>The seed is stored on BNB Chain. The drawing code is open and runs in this page, so anyone can redraw any Nomio from its number.</p></details>
+    <details><summary>What comes with it?</summary><p>An artwork and the means to study it, plus one claim of 250,000 $NOMIO per work, recorded on-chain. See the claim section above. Nothing more is promised. See the <a href="/roadmap">curatorial programme</a>.</p></details>
+  </section>
+</main>
+
+<footer class="foot mono">
+  <span>NOMIO · SERIES I · 4,444</span>
+  <a id="cLink" href="https://bscscan.com/address/0x48b5e5573e76CaAa41a893496dE6C857720E6b40" target="_blank" rel="noopener">Contract 0x48b5…6b40 ↗</a>
+</footer>
+
+<script src="/js/art.js"></script>
+<script src="/js/chain.js"></script>
+<script src="/js/site.js"></script>
+<script src="/js/smooth.js" defer></script>
+<script src="/js/market-open.js"></script>
+<script src="/js/claim.js"></script>
+</body>
+</html>
